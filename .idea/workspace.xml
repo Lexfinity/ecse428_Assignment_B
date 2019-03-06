@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60fb2cca-1e7c-4a3b-b6b4-c79567d1a7d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/byte_buddy_1_8_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/aarud.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/send_email_with_attachment.feature" beforeDir="false" afterPath="$PROJECT_DIR$/send_email_with_attachment.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/anthonyammar/cucumber/StepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/anthonyammar/cucumber/StepDefinitions.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,11 +33,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/anthonyammar/cucumber/StepDefinitions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="92" column="54" selection-start-line="92" selection-start-column="54" selection-end-line="92" selection-end-column="54" />
               <folding>
-                <element signature="e#8545#8546#0" expanded="true" />
-                <element signature="e#8593#8594#0" expanded="true" />
+                <element signature="e#9778#9779#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/send_email_with_attachment.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="49" lean-forward="true" selection-end-line="4" selection-end-column="49" />
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -55,6 +56,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>PRODUCT_URL</find>
+      <find>searchForText</find>
+      <find>getText</find>
+      <find>cart</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -63,6 +67,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/send_email_with_attachment.feature" />
         <option value="$PROJECT_DIR$/src/test/java/com/anthonyammar/cucumber/StepDefinitions.java" />
       </list>
     </option>
@@ -139,7 +144,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551902905481" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551905434258" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/selenium-java-3.141.59/client-combined-3.141.59.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -214,18 +219,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/send_email_with_attachment.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="49" lean-forward="true" selection-end-line="4" selection-end-column="49" />
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/anthonyammar/cucumber/StepDefinitions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+        <state relative-caret-position="136">
+          <caret line="92" column="54" selection-start-line="92" selection-start-column="54" selection-end-line="92" selection-end-column="54" />
           <folding>
-            <element signature="e#8545#8546#0" expanded="true" />
-            <element signature="e#8593#8594#0" expanded="true" />
+            <element signature="e#9778#9779#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -20,9 +20,15 @@ public class StepDefinitions {
     private WebDriver driver;
     private final String PATH_TO_CHROME_DRIVER = "/Users/knam/Downloads/chromedriver";
     private final String PRODUCT_URL = "https://www.amazon.ca/Monoprice-115365-Select-Mini-Printer/dp/B01FL49VZE/ref=sr_1_1?ie=UTF8&qid=1488132110&sr=8-1&keywords=3d+printer";
-    private final String EMAIL_URL = "https://mail.google.com/mail/u/0/#inbox?compose=new"
 
+    private final String EMAIL_URL = "https://mail.google.com/mail/u/0/#inbox?compose=new"
     private final String INBOX_URL = "https://mail.google.com/mail/u/0/#inbox"
+    private final String ATTACHMENT_BTN = "J-J5-Ji J-Z-I-J6-H"
+    private final String COMPOSE_BTN = "T-I J-J5-Ji T-I-KE L3"
+    private final String SEND_BTN = "gU Up"
+    private final String RECEIPIENT_TEXT_FIELD = "vO"
+    private final String SUBJECT_TEXT_FIELD = "aoT"
+    private final String SUBJECT_TEXT_FIELD = "aT"
 
     private final String PRODUCT_NAME = "Monoprice 115365 Monoprice Select Mini 3D Printer";
     private final String DELETE_BTN_NAME = "submit.delete.C3NLW69582M4B4";
@@ -41,7 +47,18 @@ public class StepDefinitions {
     @Given("^I am a user$")
     public void givenIAmUser() throws Throwable {
         setupSeleniumWebDrivers();
-        goTo(PRODUCT_URL);
+        goTo(INBOX_URL);
+    }
+
+    @And("^ I have clicked \"compose a new email\"") throws Throwable {
+        setupSeleniumWebDrivers();
+        driver.findElement(By.className("COMPOSE_BTN")).click();
+        goTo(EMAIL_URL);
+    }
+
+    @And("^ I have filled in the information for a recepient email and subject") throws Throwable {
+        driver.findElement(By.className("RECEIPIENT_TEXT_FIELD")).sendKeys("anthony.laye@mail.mcgill.ca");
+        driver.findElement(By.className("SUBJECT_TEXT_FIELD")).sendKeys("Test");
     }
 
     /*
@@ -54,40 +71,41 @@ public class StepDefinitions {
     @When("^I import an image file to my email $")
     public void iImportAnImageFileToMyEmail() throws Throwable {
         // Go to a product page
-        goTo(PRODUCT_URL);
+        goTo(EMAIL_URL);
+
+        //INSERT PATH FOR IMAGE
+        driver.findElement(By.className("ATTACHMENT_BTN")).sendKeys("");
 
         // Add a product to shopping cart
-        System.out.println("Attempting to find Add to Cart button.. ");
+        System.out.println("Uploading file to your email.. ");
         WebElement btn = (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.elementToBeClickable(By.id(ADD_TO_CART_BTN)));
-        System.out.print("Found!\n");
-        btn.click();
-        System.out.println("Clicking Add to Cart button");
 
-        // Return to cart
-        goTo(CART_URL);
     }
 
     @Then("^that file should appear as an attachment$")
     public void myEmailHasAnImage() throws Throwable {
-        goTo(CART_URL);
 
-        // Wait for presence of current active cart
-        WebElement cart = (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id(ACTIVE_CART)));
 
-        // If cart is not empty, delete whatever is in it
-        if (!searchForText(cart.getText(), "empty")) {
-            WebElement btn = (new WebDriverWait(driver, 10))
-                    .until(ExpectedConditions.elementToBeClickable(By.name(DELETE_BTN_NAME)));
-            btn.click();
+        WebElement attachment = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className("vI")));
+
+        if (!searchForText(attachment.getText(), FILENAME)) {
+            System.out.println("Image was not found");
         }
     }
 
+
     @And("^I can send the email with the attachment ")
     public void iCanSendEmailWithImage() throws Throwable {
-        iHaveAProductThatExistsInMyShoppingCart();
+        ExpectedConditions.elementToBeClickable(By.name(SEND_BTN));
+
+        WebElement email = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className("aT")));
+
+
     }
+
+
 
 
 

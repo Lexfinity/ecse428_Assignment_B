@@ -1,8 +1,11 @@
 Scenario: Sending an email with an image file attachment
   Given I am a user
+  And I have clicked "compose a new email"
+  And I have filled in the information for a recepient email and subject
   When I import an image file to my email
   Then that file should appear as an attachment(s)
   And I can send the email with the attachment(s)
+
 
 Scenario: Sending an email with a large image file attachment
   Given I am a user
