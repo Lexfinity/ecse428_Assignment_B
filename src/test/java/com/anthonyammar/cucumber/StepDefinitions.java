@@ -20,6 +20,10 @@ public class StepDefinitions {
     private WebDriver driver;
     private final String PATH_TO_CHROME_DRIVER = "/Users/knam/Downloads/chromedriver";
     private final String PRODUCT_URL = "https://www.amazon.ca/Monoprice-115365-Select-Mini-Printer/dp/B01FL49VZE/ref=sr_1_1?ie=UTF8&qid=1488132110&sr=8-1&keywords=3d+printer";
+    private final String EMAIL_URL = "https://mail.google.com/mail/u/0/#inbox?compose=new"
+
+    private final String INBOX_URL = "https://mail.google.com/mail/u/0/#inbox"
+
     private final String PRODUCT_NAME = "Monoprice 115365 Monoprice Select Mini 3D Printer";
     private final String DELETE_BTN_NAME = "submit.delete.C3NLW69582M4B4";
     private final String CART_URL = "https://www.amazon.ca/gp/cart/view.html/ref=nav_cart";
@@ -27,22 +31,28 @@ public class StepDefinitions {
     private final String ACTIVE_CART = "sc-active-cart";
     private final String CHECKOUT_BTN = "sc-proceed-to-checkout";
 
+    Scenario: Sending an email with an image file attachment
+    Given I am a user
+    When I import an image file to my email
+    Then that file should appear as an attachment(s)
+    And I can send the email with the attachment(s)
 
     // Given
-    @Given("^I am on a Amazon product page$")
-    public void givenOnAmazonProductPage() throws Throwable {
+    @Given("^I am a user$")
+    public void givenIAmUser() throws Throwable {
         setupSeleniumWebDrivers();
         goTo(PRODUCT_URL);
     }
 
+    /*
     @Given("^I am on my current shopping cart$")
     public void iAmOnMyCurrentShoppingCart() throws Throwable {
         setupSeleniumWebDrivers();
         goTo(CART_URL);
     }
-
-    @And("^I have a product that exists in my shopping cart$")
-    public void iHaveAProductThatExistsInMyShoppingCart() throws Throwable {
+*/
+    @When("^I import an image file to my email $")
+    public void iImportAnImageFileToMyEmail() throws Throwable {
         // Go to a product page
         goTo(PRODUCT_URL);
 
@@ -58,8 +68,8 @@ public class StepDefinitions {
         goTo(CART_URL);
     }
 
-    @And("^my shopping cart is empty$")
-    public void myShoppingCartIsEmpty() throws Throwable {
+    @Then("^that file should appear as an attachment$")
+    public void myEmailHasAnImage() throws Throwable {
         goTo(CART_URL);
 
         // Wait for presence of current active cart
@@ -74,10 +84,38 @@ public class StepDefinitions {
         }
     }
 
-    @And("^I have the same product that already exists in my shopping cart$")
-    public void iHaveTheSameProductThatAlreadyExistsInMyShoppingCart() throws Throwable {
+    @And("^I can send the email with the attachment ")
+    public void iCanSendEmailWithImage() throws Throwable {
         iHaveAProductThatExistsInMyShoppingCart();
     }
+
+
+
+
+    @When("^I upload an image file to my email$")
+    public void uploadImageFileToEmail() throws Throwable {
+
+
+    }
+
+    @And("^I press send while the files are still uploading$")
+    public void sendWhileUploading() throws Throwable {
+
+    }
+
+    @Then("^my email will not be sent$")
+    public void emailNotSent() throws Throwable {
+
+    }
+
+    @And("^I will get a message saying to wait until my files are uploaded$")
+    public void waitUntilFilesUploadedError() throws Throwable {
+
+    }
+
+
+
+
 
     // When
     @When("^I press \"Delete\"$")
