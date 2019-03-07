@@ -11,12 +11,16 @@ Feature: Test sending email with attachment
 
   Scenario: Sending an email with a large image file attachment
     Given I am a user
+    And I have clicked "compose a new email"
+    And I have filled in the information for a recepient email and subject
     When I upload an image larger than 25mb
-    Then it will automatically be uploaded to my google drive
-    And I can send an email with the google drive link to the attachment(s)
+    Then it will automatically be uploaded to my google drive and attached to email
+    And I can send an email with the google drive link to the attachment
 
   Scenario:  Sending an email with an image file attachment while it is still being uploaded
     Given I am a user
+    And I have clicked "compose a new email"
+    And I have filled in the information for a recepient email and subject
     When I upload an image file to my email
     And I press send while the files are still uploading
     Then my email will not be sent

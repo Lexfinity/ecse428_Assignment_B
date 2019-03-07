@@ -21,10 +21,13 @@ public class StepDefinitions {
 
     // Variables
     private WebDriver driver;
-    private final String IMAGE1_URL = System.getProperty("user.dir") + "\\images\\hashtag_5.jpg";
+    private final String IMAGE1_URL = System.getProperty("user.dir") + "/images/hashtag_5.jpg";
+    private final String LARGE_IMAGE_URL = System.getProperty("user.dir") + "/images/bigimage.jpg";
     private final String DRIVER_PATH = System.getProperty("user.dir") + "/chromedriver.exe";
 
-    private final String EMAIL_URL = "https://mail.google.com/mail/u/0/#inbox?compose=new";
+    private final String SIGN_IN_EMAIL = "ecse428AA@gmail.com";
+    private final String SIGN_IN_PASSWORD = "Ecse428@";
+
     private final String INBOX_URL = "https://mail.google.com/mail/u/0/#inbox";
     private final String ATTACHMENT_BTN = "//input[@type='file']";
     private final String COMPOSE_BTN = "z0";
@@ -33,6 +36,7 @@ public class StepDefinitions {
     private final String SUBJECT_TEXT_FIELD = "aoT";
     private final String CONFIRMATION_TEXT_FIELD = "aT";
     private final String ATTACHMENT_TEXT_FIELD_CHECK = "vI";
+    private final String DRIVE_POPUP_TEXT_FIELD = "Kj-JD-K7-K0";
 
     /* ===================================================================================================
     ========================================== SETUP =====================================================
@@ -56,9 +60,9 @@ public class StepDefinitions {
 
     @And("^I have filled in the information for a recepient email and subject$")
     public void iFillInformation() throws Throwable {
-        Thread.sleep(2000);
+        Thread.sleep(3000);
 
-        driver.findElement(By.className(RECEIPIENT_TEXT_FIELD)).sendKeys("ecse428AA@gmail.com");
+        driver.findElement(By.className(RECEIPIENT_TEXT_FIELD)).sendKeys(SIGN_IN_EMAIL);
         driver.findElement(By.className(SUBJECT_TEXT_FIELD)).sendKeys("Test");
     }
 
@@ -88,7 +92,7 @@ public class StepDefinitions {
 
     @And("^I can send the email with the attachment$")
     public void iCanSendEmailWithImage() throws Throwable {
-        WebElement sendBTN = (new WebDriverWait(driver, 5))
+        WebElement sendBTN = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.elementToBeClickable(By.className(SEND_BTN)));
 
         sendBTN.click();
@@ -109,17 +113,35 @@ public class StepDefinitions {
 
     @When("^I upload an image larger than 25mb$")
     public void uploadLargeImage() throws Throwable {
-
+        driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(LARGE_IMAGE_URL);  // Upload
+        System.out.println("Uploading file to your email.. ");
     }
 
-    @Then("^it will automatically be uploaded to my google drive$")
+    @Then("^it will automatically be uploaded to my google drive and attached to email$")
     public void uploadToDrive() throws Throwable {
+        WebElement drivePopUp = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className(DRIVE_POPUP_TEXT_FIELD)));  // Check to see for google drive
 
+        if (!drivePopUp.getText().contains("Attaching File")) {  // If no string it means attachment wasn't properly added
+            System.out.println("File not uploading");
+        }
+
+        Thread.sleep(10000);  // Wait for upload
     }
 
-    @And("^I can send an email with the google drive link to the attachment(s)$")
+    @And("^I can send an email with the google drive link to the attachment$")
     public void sendDriveLink() throws Throwable {
 
+        WebElement sendBTN = (new WebDriverWait(driver, 5))
+                .until(ExpectedConditions.elementToBeClickable(By.className(SEND_BTN)));
+        sendBTN.click();
+
+        Thread.sleep(3000);
+
+        WebElement emailAlert = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className(CONFIRMATION_TEXT_FIELD)));
+
+        Assert.assertTrue(emailAlert.getText().contains("Message sent."));
     }
 
 
@@ -129,7 +151,7 @@ public class StepDefinitions {
     ======================================================================================================
      */
 
-    /*
+
     @When("^I upload an image file to my email$")
     public void uploadImageFileToEmail() throws Throwable {
 
@@ -151,10 +173,9 @@ public class StepDefinitions {
 
     }
 
-    */
 
     private void signIn() {
-        driver.findElement(By.className("whsOnd")).sendKeys("ecse428AA@gmail.com");
+        driver.findElement(By.className("whsOnd")).sendKeys(SIGN_IN_EMAIL);
         WebElement nextBTN = (new WebDriverWait(driver, 5))
                 .until(ExpectedConditions.elementToBeClickable(By.className("qhFLie")));
 
@@ -166,7 +187,7 @@ public class StepDefinitions {
             e.printStackTrace();
         }
 
-        driver.findElement(By.className("whsOnd")).sendKeys("Ecse428@");
+        driver.findElement(By.className("whsOnd")).sendKeys(SIGN_IN_PASSWORD);
         nextBTN = (new WebDriverWait(driver, 5))
                 .until(ExpectedConditions.elementToBeClickable(By.className("qhFLie")));
 
