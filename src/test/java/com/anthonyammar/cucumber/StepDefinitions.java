@@ -21,18 +21,23 @@ public class StepDefinitions {
 
     // Variables
     private WebDriver driver;
-    private final String IMAGE1_URL = System.getProperty("user.dir") + "/images/hashtag_5.jpg";
+    private final String IMAGE1_URL = System.getProperty("user.dir") + "\\images\\hashtag_5.jpg";
     private final String DRIVER_PATH = System.getProperty("user.dir") + "/chromedriver.exe";
 
     private final String EMAIL_URL = "https://mail.google.com/mail/u/0/#inbox?compose=new";
     private final String INBOX_URL = "https://mail.google.com/mail/u/0/#inbox";
-    private final String ATTACHMENT_BTN = "//*[@id=\":pl\"]";
+    private final String ATTACHMENT_BTN = "//input[@type='file']";
     private final String COMPOSE_BTN = "z0";
     private final String SEND_BTN = "gU";
     private final String RECEIPIENT_TEXT_FIELD = "vO";
     private final String SUBJECT_TEXT_FIELD = "aoT";
     private final String CONFIRMATION_TEXT_FIELD = "aT";
-    private final String ATTACHMENT_TEXT_FIELD = "aT";
+    private final String ATTACHMENT_TEXT_FIELD_CHECK = "vI";
+
+    /* ===================================================================================================
+    ========================================== SETUP =====================================================
+    ======================================================================================================
+     */
 
     @Given("^I am a user$")
     public void givenIAmUser() throws Throwable {
@@ -43,7 +48,7 @@ public class StepDefinitions {
 
     @And("^I have clicked \"compose a new email\"$")
     public void iComposeEmail() throws Throwable {
-        WebElement composeBTN = (new WebDriverWait(driver, 5))
+        WebElement composeBTN = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.elementToBeClickable(By.className(COMPOSE_BTN)));
 
         composeBTN.click();
@@ -53,31 +58,29 @@ public class StepDefinitions {
     public void iFillInformation() throws Throwable {
         Thread.sleep(2000);
 
-        driver.findElement(By.className(RECEIPIENT_TEXT_FIELD)).sendKeys("anthony.laye@mail.mcgill.ca");
+        driver.findElement(By.className(RECEIPIENT_TEXT_FIELD)).sendKeys("ecse428AA@gmail.com");
         driver.findElement(By.className(SUBJECT_TEXT_FIELD)).sendKeys("Test");
     }
 
+
+    /* ===================================================================================================
+    ========================================== NORMAL FLOW ===============================================
+    ======================================================================================================
+     */
+
     @When("^I import an image file to my email$")
     public void iImportAnImageFileToMyEmail() throws Throwable {
-
-        //INSERT PATH FOR IMAGE
-        System.out.println(IMAGE1_URL);
-        driver.findElement(By.cssSelector(ATTACHMENT_BTN)).sendKeys("IMAGE1_URL");
-
-        // Add a product to shopping cart
+        driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(IMAGE1_URL);  // Upload
         System.out.println("Uploading file to your email.. ");
-
-        Thread.sleep(8000);
+        Thread.sleep(8000);  // Wait for upload
     }
 
     @Then("^that file should appear as an attachment$")
     public void myEmailHasAnImage() throws Throwable {
-
-
         WebElement attachment = (new WebDriverWait(driver, 10))
-                .until(ExpectedConditions.presenceOfElementLocated(By.className("vI")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.className(ATTACHMENT_TEXT_FIELD_CHECK)));
 
-        if (!searchForText(attachment.getText(), IMAGE1_URL)) {
+        if (attachment.getText().equals("")) {  // If no string it means attachment wasn't properly added
             System.out.println("Image was not found");
         }
     }
@@ -85,9 +88,6 @@ public class StepDefinitions {
 
     @And("^I can send the email with the attachment$")
     public void iCanSendEmailWithImage() throws Throwable {
-        //ExpectedConditions.elementToBeClickable(By.name(SEND_BTN));
-        System.out.println("Almost done");
-
         WebElement sendBTN = (new WebDriverWait(driver, 5))
                 .until(ExpectedConditions.elementToBeClickable(By.className(SEND_BTN)));
 
@@ -98,12 +98,36 @@ public class StepDefinitions {
         WebElement emailAlert = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.className(CONFIRMATION_TEXT_FIELD)));
 
-        Assert.assertEquals(emailAlert.getText(), "Message sent");
+        Assert.assertTrue(emailAlert.getText().contains("Message sent."));
+    }
+
+
+    /* ===================================================================================================
+    ========================================== ALTERNATIVE FLOW ===============================================
+    ======================================================================================================
+     */
+
+    @When("^I upload an image larger than 25mb$")
+    public void uploadLargeImage() throws Throwable {
+
+    }
+
+    @Then("^it will automatically be uploaded to my google drive$")
+    public void uploadToDrive() throws Throwable {
+
+    }
+
+    @And("^I can send an email with the google drive link to the attachment(s)$")
+    public void sendDriveLink() throws Throwable {
+
     }
 
 
 
-
+    /* ===================================================================================================
+    ========================================== ERROR FLOW ===============================================
+    ======================================================================================================
+     */
 
     /*
     @When("^I upload an image file to my email$")
