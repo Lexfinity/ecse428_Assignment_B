@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60fb2cca-1e7c-4a3b-b6b4-c79567d1a7d8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/features/send_email_with_attachment.feature" beforeDir="false" afterPath="$PROJECT_DIR$/features/send_email_with_attachment.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ecse428_Assignment_B/test/java/com/anthonyammar/cucumber/StepDefinitions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ecse428_Assignment_B/test/java/com/anthonyammar/cucumber/StepDefinitions.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/anthonyammar/cucumber/StepDefinitions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/anthonyammar/cucumber/StepDefinitions.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -12,49 +14,17 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="922069006">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="class" value="1" />
-          <entry key="java" value="1" />
-          <entry key="jpg" value="6" />
-          <entry key="md" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="1" />
-          <entry key="Image" value="6" />
-          <entry key="JAVA" value="1" />
-          <entry key="Markdown" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="feature" value="83" />
-          <entry key="java" value="3032" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="Cucumber" value="83" />
-          <entry key="JAVA" value="3032" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.25" value="1" />
-          <entry key="project.open.time.45" value="1" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.project">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ecse428_Assignment_B.iml">
           <provider selected="true" editor-type-id="text-editor" />
@@ -63,12 +33,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/anthonyammar/cucumber/StepDefinitions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="38" column="64" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
+            <state relative-caret-position="1108">
+              <caret line="159" column="50" selection-start-line="159" selection-start-column="50" selection-end-line="159" selection-end-column="50" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#8851#8852#0" expanded="true" />
-                <element signature="e#8899#8900#0" expanded="true" />
+                <element signature="e#9288#9289#0" expanded="true" />
+                <element signature="e#9336#9337#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,17 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/send_email_with_attachment.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/jars/cucumber-core-1.1.2.jar!/cucumber/runtime/Utils.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="219">
+              <caret line="24" column="44" lean-forward="true" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -102,26 +62,6 @@
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/hashtag_5.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/hashtag_27.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/hashtag_107.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/hashtag_102.jpg">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -140,6 +80,10 @@
       <find>getText</find>
       <find>cart</find>
       <find>searchFor</find>
+      <find>LARGE_IMAGE_URL</find>
+      <find>user.dir</find>
+      <find>ATTACHMENT_TEXT_FIELD_CHECK</find>
+      <find>SEND_BTN</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -162,10 +106,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="697" />
-    <option name="y" value="-45" />
-    <option name="width" value="1940" />
-    <option name="height" value="1070" />
+    <option name="x" value="25" />
+    <option name="y" value="50" />
+    <option name="width" value="3150" />
+    <option name="height" value="1600" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -173,6 +117,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,58 +128,17 @@
             <path>
               <item name="ecse428_Assignment_B" type="b2602c69:ProjectViewProjectNode" />
               <item name="ecse428_Assignment_B" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ecse428_Assignment_B" type="b2602c69:ProjectViewProjectNode" />
               <item name="ecse428_Assignment_B" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecse428_Assignment_B" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecse428_Assignment_B" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecse428_Assignment_B" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecse428_Assignment_B" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecse428_Assignment_B" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecse428_Assignment_B" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecse428_Assignment_B" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecse428_Assignment_B" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="anthonyammar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ecse428_Assignment_B" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ecse428_Assignment_B" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="anthonyammar" type="462c0819:PsiDirectoryNode" />
-              <item name="cucumber" type="462c0819:PsiDirectoryNode" />
+              <item name="features" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -243,7 +147,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551988416829" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552154582675" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/jars/cucumber-core-1.1.2.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.19733925" />
@@ -337,6 +241,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="test.java.com.anthonyammar.cucumber" />
       <option name="MAIN_CLASS_NAME" value="test.java.com.anthonyammar.cucumber.CucumberRunner" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -351,6 +256,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="test.java.com.anthonyammar.cucumber" />
       <option name="MAIN_CLASS_NAME" value="test.java.com.anthonyammar.cucumber.StepDefinitions" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -358,9 +264,9 @@
     <list>
       <item itemvalue="Cucumber java.Feature: send_email_with_attachment" />
       <item itemvalue="Cucumber java.Feature: send_email_with_attachment (1)" />
+      <item itemvalue="Cucumber java.Scenario: Sending an email with a large image file attachment" />
       <item itemvalue="JUnit.StepDefinitions" />
       <item itemvalue="JUnit.CucumberRunner" />
-      <item itemvalue="Cucumber java.Scenario: Sending an email with a large image file attachment" />
     </list>
     <recent_temporary>
       <list>
@@ -389,34 +295,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CucumberRunner - 2019.03.07 at 14h 26m 47s.xml">
+    <history-entry file="CucumberRunner - 2019.03.07 at 16h 42m 01s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Scenario__Sending_an_email_with_a_large_image_file_attachment - 2019.03.07 at 14h 29m 56s.xml">
-      <configuration name="Scenario: Sending an email with a large image file attachment" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Scenario__Sending_an_email_with_a_large_image_file_attachment - 2019.03.07 at 14h 30m 23s.xml">
-      <configuration name="Scenario: Sending an email with a large image file attachment" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
-    <history-entry file="CucumberRunner - 2019.03.07 at 14h 32m 10s.xml">
+    <history-entry file="CucumberRunner - 2019.03.07 at 16h 44m 55s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CucumberRunner - 2019.03.07 at 14h 34m 37s.xml">
+    <history-entry file="CucumberRunner - 2019.03.07 at 17h 06m 59s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CucumberRunner - 2019.03.07 at 14h 36m 16s.xml">
+    <history-entry file="CucumberRunner - 2019.03.07 at 17h 08m 59s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CucumberRunner - 2019.03.07 at 14h 38m 48s.xml">
+    <history-entry file="CucumberRunner - 2019.03.07 at 17h 18m 09s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CucumberRunner - 2019.03.07 at 14h 41m 18s.xml">
+    <history-entry file="CucumberRunner - 2019.03.07 at 17h 22m 03s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CucumberRunner - 2019.03.07 at 14h 46m 08s.xml">
+    <history-entry file="CucumberRunner - 2019.03.07 at 22h 07m 09s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CucumberRunner - 2019.03.07 at 14h 47m 46s.xml">
+    <history-entry file="CucumberRunner - 2019.03.09 at 12h 52m 44s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CucumberRunner - 2019.03.09 at 12h 55m 37s.xml">
+      <configuration name="CucumberRunner" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CucumberRunner - 2019.03.09 at 12h 58m 18s.xml">
       <configuration name="CucumberRunner" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -433,10 +339,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1293" height="702" extended-state="6" />
+    <frame x="-6" y="-6" width="1293" height="693" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15951417" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24696356" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -445,16 +351,16 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16637479" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.053285968" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39914164" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32939914" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32939914" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3285968" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.2167382" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.21669628" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -470,9 +376,6 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.project">
       <provider selected="true" editor-type-id="text-editor">
@@ -481,17 +384,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ecse428_Assignment_B.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md" />
     <entry file="jar://$PROJECT_DIR$/jars/cucumber-core-1.1.2.jar!/cucumber/runtime/Utils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -511,9 +404,7 @@
     <entry file="file://$PROJECT_DIR$/images/hashtag_102.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/map.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/images/map.jpg" />
     <entry file="file://$PROJECT_DIR$/images/bigimage.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -527,21 +418,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ecse428_Assignment_B.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/features/send_email_with_attachment.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="219">
+          <caret line="24" column="44" lean-forward="true" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/anthonyammar/cucumber/StepDefinitions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="38" column="64" selection-start-line="38" selection-start-column="64" selection-end-line="38" selection-end-column="64" />
+        <state relative-caret-position="1108">
+          <caret line="159" column="50" selection-start-line="159" selection-start-column="50" selection-end-line="159" selection-end-column="50" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8851#8852#0" expanded="true" />
-            <element signature="e#8899#8900#0" expanded="true" />
+            <element signature="e#9288#9289#0" expanded="true" />
+            <element signature="e#9336#9337#0" expanded="true" />
           </folding>
         </state>
       </provider>

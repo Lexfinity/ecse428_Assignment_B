@@ -23,20 +23,24 @@ public class StepDefinitions {
     private WebDriver driver;
     private final String IMAGE1_URL = System.getProperty("user.dir") + "/images/hashtag_5.jpg";
     private final String LARGE_IMAGE_URL = System.getProperty("user.dir") + "/images/bigimage.jpg";
+    private final String MEDIUM_IMAGE_URL = System.getProperty("user.dir") + "/images/bangkok.jpg";
     private final String DRIVER_PATH = System.getProperty("user.dir") + "/chromedriver.exe";
 
     private final String SIGN_IN_EMAIL = "ecse428AA@gmail.com";
     private final String SIGN_IN_PASSWORD = "Ecse428@";
 
     private final String INBOX_URL = "https://mail.google.com/mail/u/0/#inbox";
+    private final String DRAFT_URL = "https://mail.google.com/mail/u/0/#drafts";
     private final String ATTACHMENT_BTN = "//input[@type='file']";
     private final String COMPOSE_BTN = "z0";
     private final String SEND_BTN = "gU";
+    private final String CANCEL_BTN = "vq";
     private final String RECEIPIENT_TEXT_FIELD = "vO";
     private final String SUBJECT_TEXT_FIELD = "aoT";
     private final String CONFIRMATION_TEXT_FIELD = "aT";
     private final String ATTACHMENT_TEXT_FIELD_CHECK = "vI";
     private final String DRIVE_POPUP_TEXT_FIELD = "Kj-JD-K7-K0";
+    //private final String "y6";
 
     /* ===================================================================================================
     ========================================== SETUP =====================================================
@@ -146,31 +150,60 @@ public class StepDefinitions {
 
 
 
+
+
     /* ===================================================================================================
     ========================================== ERROR FLOW ===============================================
     ======================================================================================================
      */
 
-
+    //Uploading an image file from image directory
     @When("^I upload an image file to my email$")
     public void uploadImageFileToEmail() throws Throwable {
+        driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(IMAGE1_URL);  // Upload
+        System.out.println("Uploading file to your email.. ");
+        //Thread.sleep(2000);
 
 
     }
 
-    @And("^I press send while the files are still uploading$")
-    public void sendWhileUploading() throws Throwable {
+
+    //Cancel button is pressed, removing the image attachment that is being loaded
+    @And("^I cancel the upload$")
+    public void cancelWhileUploading() throws Throwable {
+
+        WebElement cancelBTN = (new WebDriverWait(driver, 5))
+                .until(ExpectedConditions.elementToBeClickable(By.className(CANCEL_BTN)));
+
+        cancelBTN.click();
 
     }
 
-    @Then("^my email will not be sent$")
-    public void emailNotSent() throws Throwable {
+    // Sends email
+    @Then("^my email will be sent without an image attachment$")
+    public void emailSentWithoutImage() throws Throwable {
+
+        WebElement sendBTN = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.elementToBeClickable(By.className(SEND_BTN)));
+
+        sendBTN.click();
+
+
 
     }
+
 
     @And("^I will get a message saying to wait until my files are uploaded$")
     public void waitUntilFilesUploadedError() throws Throwable {
 
+        WebElement attachment = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className(ATTACHMENT_TEXT_FIELD_CHECK)));
+
+        if (attachment.getText().equals("")) {  // If no string it means attachment wasn't properly added
+            System.out.println("Image was not found");
+
+
+        }
     }
 
 
