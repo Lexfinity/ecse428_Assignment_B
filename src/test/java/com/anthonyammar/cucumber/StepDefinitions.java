@@ -13,24 +13,30 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class StepDefinitions {
 
     // Variables
     private WebDriver driver;
+    private final String DRIVER_PATH = System.getProperty("user.dir") + "/chromedriver.exe";
 
     // Image Files
     private final String IMAGE1_URL = System.getProperty("user.dir") + "/images/hashtag_5.jpg";
+    private final String IMAGE2_URL = System.getProperty("user.dir") + "/images/hashtag_27.jpg";
+    private final String IMAGE3_URL = System.getProperty("user.dir") + "/images/hashtag_107.png";
+    private final String[] image_list = {IMAGE1_URL, IMAGE2_URL, IMAGE3_URL};
     private final String LARGE_IMAGE_URL = System.getProperty("user.dir") + "/images/bigimage.jpg";
-    private final String MEDIUM_IMAGE_URL = System.getProperty("user.dir") + "/images/bangkok.jpg";
-    private final String DRIVER_PATH = System.getProperty("user.dir") + "/chromedriver.exe";
+
+    // Emails
+    private final String[] recipient_list = {"ecse428AA@gmail.com", "anthony.laye@mail.mcgill.ca", "p_hockey124@hotmail.com", "anthony_laye@hotmail.com"};
 
     // Authentication
     private final String SIGN_IN_EMAIL = "ecse428AA@gmail.com";
     private final String SIGN_IN_PASSWORD = "Ecse428@";
 
     private final String INBOX_URL = "https://mail.google.com/mail/u/0/#inbox";
-    private final String DRAFT_URL = "https://mail.google.com/mail/u/0/#drafts";
 
     // HTML Class and ID names for selenium web elements
     private final String ATTACHMENT_BTN = "//input[@type='file']";
@@ -60,7 +66,7 @@ public class StepDefinitions {
         WebElement composeBTN = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.elementToBeClickable(By.className(COMPOSE_BTN)));
 
-        Assert.assertTrue(checkInitialFinalState()); // Make sure we are in the correct initial state before starting
+        Assert.assertTrue(checkInitialState()); // Make sure we are in the correct initial state before starting
 
         composeBTN.click();  // Click the compose email button
     }
@@ -69,7 +75,32 @@ public class StepDefinitions {
     public void iFillInformation() {
         WebElement recipient = (new WebDriverWait(driver, 5))
                 .until(ExpectedConditions.presenceOfElementLocated(By.className(RECEIPIENT_TEXT_FIELD))); // Make sure attachment appears
-        recipient.sendKeys(SIGN_IN_EMAIL);
+        Random r = new Random(); // Get random recipient for email
+        int randomNumber=r.nextInt(recipient_list.length);
+        recipient.sendKeys(recipient_list[randomNumber]);
+
+        WebElement subject = (new WebDriverWait(driver, 5))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className(SUBJECT_TEXT_FIELD))); // Make sure attachment appears
+        subject.sendKeys("Test");
+    }
+
+    @And("^I have filled in the information for two recepient emails and subject$")
+    public void iFillInformationTwoRecipients() {
+        WebElement recipient = (new WebDriverWait(driver, 5))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className(RECEIPIENT_TEXT_FIELD))); // Make sure attachment appears
+        Random r = new Random(); // Get random recipient for email
+        int randomNumber1 = r.nextInt(recipient_list.length);
+        int randomNumber2 = r.nextInt(recipient_list.length);
+
+        while(randomNumber1 == randomNumber2)
+            randomNumber2 = r.nextInt(recipient_list.length); // Ensure different random numbers
+
+        recipient.sendKeys(recipient_list[randomNumber1] + " ");
+
+        recipient = (new WebDriverWait(driver, 5))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className(RECEIPIENT_TEXT_FIELD))); // Make sure attachment appears
+
+        recipient.sendKeys(recipient_list[randomNumber2]);
 
         WebElement subject = (new WebDriverWait(driver, 5))
                 .until(ExpectedConditions.presenceOfElementLocated(By.className(SUBJECT_TEXT_FIELD))); // Make sure attachment appears
@@ -78,13 +109,15 @@ public class StepDefinitions {
 
 
     /* ===================================================================================================
-    ========================================== NORMAL FLOW ===============================================
+    ========================================== NORMAL FLOW 1 =============================================
     ======================================================================================================
      */
 
     @When("^I import an image file to my email$")
     public void iImportAnImageFileToMyEmail() {
-        driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(IMAGE1_URL);  // Upload
+        Random r = new Random(); // Get random recipient for email
+        int randomNumber = r.nextInt(image_list.length);
+        driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(image_list[randomNumber]);  // Upload
         System.out.println("Uploading file to your email.. ");
     }
 
@@ -121,9 +154,8 @@ public class StepDefinitions {
 
         System.out.println(emailAlert.getText());
         Assert.assertTrue(confirmSent(emailAlert)); // Confirm email was sent
-        Assert.assertTrue(checkInitialFinalState());
+        Assert.assertTrue(checkInitialState()); // Confirm we are back to initial state
     }
-
 
     /* ===================================================================================================
     ========================================== ALTERNATIVE FLOW ===============================================
@@ -172,7 +204,7 @@ public class StepDefinitions {
         emailAlert = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.className(CONFIRMATION_TEXT_FIELD))); // Look for sent confirmation
         Assert.assertTrue(confirmSent(emailAlert)); // Confirm email was sent
-        Assert.assertTrue(checkInitialFinalState());
+        Assert.assertTrue(checkInitialState()); // Confirm we are back to initial state
     }
 
 
@@ -184,7 +216,7 @@ public class StepDefinitions {
     //Uploading an image file from image directory
     @When("^I upload an image file to my email$")
     public void uploadImageFileToEmail() throws Throwable {
-        driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(IMAGE1_URL);  // Upload
+        driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(IMAGE2_URL);  // Upload
         System.out.println("Uploading file to your email.. ");
     }
 
@@ -230,7 +262,7 @@ public class StepDefinitions {
         emailAlert = (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.className(CONFIRMATION_TEXT_FIELD))); // Look for sent confirmation
         Assert.assertTrue(confirmSent(emailAlert)); // Confirm email was sent
-        Assert.assertTrue(checkInitialFinalState()); // Confirm we are in final state
+        Assert.assertTrue(checkInitialState()); // Confirm we are back to initial state
     }
 
 
@@ -251,7 +283,7 @@ public class StepDefinitions {
      * Method ensure that we are in the correct initial and final state (since they are the same)!
      * @return isInState
      */
-    private boolean checkInitialFinalState(){
+    private boolean checkInitialState(){
         return driver.getCurrentUrl().equals(INBOX_URL);
     }
 
