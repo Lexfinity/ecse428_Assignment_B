@@ -54,6 +54,9 @@ public class StepDefinitions {
     ======================================================================================================
      */
 
+    /**
+     *  Method that brings signed in user to their gmail inbox
+     */
     @Given("^I am a user$")
     public void givenIAmUser() throws Throwable {
         setupSeleniumWebDrivers();
@@ -61,6 +64,9 @@ public class StepDefinitions {
         signIn();  // Sign in to Gmail
     }
 
+    /**
+     *  Method that clicks the compose email button, and opens up an email panel
+     */
     @And("^I have clicked \"compose a new email\"$")
     public void iComposeEmail() {
         WebElement composeBTN = (new WebDriverWait(driver, 10))
@@ -71,6 +77,9 @@ public class StepDefinitions {
         composeBTN.click();  // Click the compose email button
     }
 
+    /**
+     * Method that automatically fills in recepient information, and adds a subject title for email
+     */
     @And("^I have filled in the information for a recepient email and subject$")
     public void iFillInformation() {
         WebElement recipient = (new WebDriverWait(driver, 5))
@@ -84,6 +93,12 @@ public class StepDefinitions {
         subject.sendKeys("Test");
     }
 
+    /**
+     *     Method that automatically adds multiple recepients to the email list and adds subject header.
+     *     List of recepients were provided, method generates 2 random numbers,
+     *     and compares them to make sure they are unique. These numbers are used as index values
+     *     to select 2 recepients from the list of recepients at random, both selected recepients will receive the email
+     */
     @And("^I have filled in the information for two recepient emails and subject$")
     public void iFillInformationTwoRecipients() {
         WebElement recipient = (new WebDriverWait(driver, 5))
@@ -113,6 +128,9 @@ public class StepDefinitions {
     ======================================================================================================
      */
 
+    /**
+     *  Method to import an image from the image folder.
+     */
     @When("^I import an image file to my email$")
     public void iImportAnImageFileToMyEmail() {
         Random r = new Random(); // Get random recipient for email
@@ -121,6 +139,29 @@ public class StepDefinitions {
         System.out.println("Uploading file to your email.. ");
     }
 
+    /**
+     *  Method to import multiple images from the image folder. 2 random numbers are generated,
+     *  and used to import 2 random images from the list of images provided.
+     */
+    @When("^I import two varying image files to my email$")
+    public void iImportMultipleImageFilesToMyEmail() {
+        Random r = new Random(); // Get random recipient for email
+        int randomNumber = r.nextInt(image_list.length);
+        int randomNumber2 = r.nextInt(image_list.length);
+        while (randomNumber == randomNumber2) {
+            randomNumber2 = r.nextInt(image_list.length);
+        }
+        driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(image_list[randomNumber]);  // Upload
+        System.out.println("Uploading file to your email.. ");
+
+        driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(image_list[randomNumber2]);
+        System.out.println("Uploading file to your email.. ");
+    }
+
+    /**
+     *  Method to check the attachment class from the web code, to make sure image was properly uploaded
+     *  if no image was uploaded then failure occurs.
+     */
     @Then("^that file should appear as an attachment$")
     public void myEmailHasAnImage() {
         WebElement attachment = (new WebDriverWait(driver, 10))
@@ -131,7 +172,25 @@ public class StepDefinitions {
         }
     }
 
+    /**
+     *  Method to check the attachment class from the web code, to make sure image was properly uploaded
+     *  if no image was uploaded then failure occurs.
+     */
+    @Then("^those files should appear as an attachment$")
+    public void myEmailHasImages() {
+        WebElement attachment = (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className(ATTACHMENT_TEXT_FIELD_CHECK))); // Make sure attachment appears
 
+        if (attachment.getText().equals("")) {  // If no string it means attachment wasn't properly added
+            Assert.fail("Image was not found");
+        }
+    }
+
+
+    /**
+     * Once image(s) have been uploaded to the email, this method allows for the email
+     * along with its attachments to be sent to the recepient.
+     */
     @And("^I can send the email with the attachment$")
     public void iCanSendEmailWithImage(){
         WebElement sendBTN = (new WebDriverWait(driver, 10))
@@ -157,17 +216,27 @@ public class StepDefinitions {
         Assert.assertTrue(checkInitialState()); // Confirm we are back to initial state
     }
 
+
+
     /* ===================================================================================================
     ========================================== ALTERNATIVE FLOW ===============================================
     ======================================================================================================
      */
 
+    /**
+     * Method that uploads an image larger than 25mb.
+     */
     @When("^I upload an image larger than 25mb$")
     public void uploadLargeImage(){
         driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(LARGE_IMAGE_URL);  // Upload
         System.out.println("Uploading file to your email.. ");
     }
 
+    /**
+     *     Method that checks to see the presence of a google drive pop up,
+     *     this pop up indicates that the image is too large to be sent directly from the email
+     *     the image will then be uploaded to google drive
+     */
     @Then("^it will automatically be uploaded to my google drive and attached to email$")
     public void uploadToDrive(){
         WebElement drivePopUp = (new WebDriverWait(driver, 10))
@@ -185,6 +254,11 @@ public class StepDefinitions {
         }
     }
 
+
+    /**
+     *Method that checks for the presence of the google drive link, which is generated and attached
+     * to the email for the recepient to access the image. Email is then sent.
+     */
     @And("^I can send an email with the google drive link to the attachment$")
     public void sendDriveLink() {
         WebElement sendBTN = (new WebDriverWait(driver, 50))
@@ -213,14 +287,18 @@ public class StepDefinitions {
     ======================================================================================================
      */
 
-    //Uploading an image file from image directory
+    /**
+     * Uploading an image file from image directory
+     */
     @When("^I upload an image file to my email$")
     public void uploadImageFileToEmail() throws Throwable {
         driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(IMAGE2_URL);  // Upload
         System.out.println("Uploading file to your email.. ");
     }
 
-    //Cancel button is pressed, removing the image attachment that is being loaded
+    /**
+     * Cancel button is pressed, removing the image attachment that is being loaded
+     */
     @And("^I cancel the upload$")
     public void cancelWhileUploading() throws Throwable {
 
@@ -230,7 +308,9 @@ public class StepDefinitions {
         cancelBTN.click();
     }
 
-    // Sends email
+    /**
+     * Sends email without any attachment files contained within it
+     */
     @Then("^my email will be sent without an image attachment$")
     public void emailSentWithoutImage() throws Throwable {
 
