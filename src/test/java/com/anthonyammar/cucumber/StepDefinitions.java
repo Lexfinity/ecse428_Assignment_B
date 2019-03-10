@@ -69,7 +69,7 @@ public class StepDefinitions {
      */
     @And("^I have clicked \"compose a new email\"$")
     public void iComposeEmail() {
-        WebElement composeBTN = (new WebDriverWait(driver, 10))
+        WebElement composeBTN = (new WebDriverWait(driver, 15))
                 .until(ExpectedConditions.elementToBeClickable(By.className(COMPOSE_BTN)));
 
         Assert.assertTrue(checkInitialState()); // Make sure we are in the correct initial state before starting
@@ -82,13 +82,13 @@ public class StepDefinitions {
      */
     @And("^I have filled in the information for a recepient email and subject$")
     public void iFillInformation() {
-        WebElement recipient = (new WebDriverWait(driver, 5))
+        WebElement recipient = (new WebDriverWait(driver, 20))
                 .until(ExpectedConditions.presenceOfElementLocated(By.className(RECEIPIENT_TEXT_FIELD))); // Make sure attachment appears
         Random r = new Random(); // Get random recipient for email
         int randomNumber=r.nextInt(recipient_list.length);
         recipient.sendKeys(recipient_list[randomNumber]);
 
-        WebElement subject = (new WebDriverWait(driver, 5))
+        WebElement subject = (new WebDriverWait(driver, 20))
                 .until(ExpectedConditions.presenceOfElementLocated(By.className(SUBJECT_TEXT_FIELD))); // Make sure attachment appears
         subject.sendKeys("Test");
     }
@@ -101,7 +101,7 @@ public class StepDefinitions {
      */
     @And("^I have filled in the information for two recepient emails and subject$")
     public void iFillInformationTwoRecipients() {
-        WebElement recipient = (new WebDriverWait(driver, 5))
+        WebElement recipient = (new WebDriverWait(driver, 20))
                 .until(ExpectedConditions.presenceOfElementLocated(By.className(RECEIPIENT_TEXT_FIELD))); // Make sure attachment appears
         Random r = new Random(); // Get random recipient for email
         int randomNumber1 = r.nextInt(recipient_list.length);
@@ -112,13 +112,13 @@ public class StepDefinitions {
 
         recipient.sendKeys(recipient_list[randomNumber1] + " ");
 
-        recipient = (new WebDriverWait(driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.className(RECEIPIENT_TEXT_FIELD))); // Make sure attachment appears
+        recipient = (new WebDriverWait(driver, 20))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className(RECEIPIENT_TEXT_FIELD))); // Make sure recipient textbox appears
 
         recipient.sendKeys(recipient_list[randomNumber2]);
 
-        WebElement subject = (new WebDriverWait(driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.className(SUBJECT_TEXT_FIELD))); // Make sure attachment appears
+        WebElement subject = (new WebDriverWait(driver, 20))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className(SUBJECT_TEXT_FIELD))); // Make sure suubject textbox appears
         subject.sendKeys("Test");
     }
 
@@ -149,7 +149,7 @@ public class StepDefinitions {
         int randomNumber = r.nextInt(image_list.length);
         int randomNumber2 = r.nextInt(image_list.length);
         while (randomNumber == randomNumber2) {
-            randomNumber2 = r.nextInt(image_list.length);
+            randomNumber2 = r.nextInt(image_list.length); // Ensure different random number
         }
         driver.findElement(By.xpath(ATTACHMENT_BTN)).sendKeys(image_list[randomNumber]);  // Upload
         System.out.println("Uploading file to your email.. ");
